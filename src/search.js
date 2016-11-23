@@ -7,6 +7,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import PublicApp from './components/PublicApp';
 import PublicProjectFinanceApp from './components/PublicProjectFinanceApp';
 import PublicDealApp from './components/PublicDealApp';
+import PublicBusinessApp from './components/PublicBusinessApp';
+import PublicFinancialApp from './components/PublicFinancialApp';
 
 import ajax from './api/ApiService';
 
@@ -91,8 +93,8 @@ function bootstrap() {
 
                 <Route path="/finance" component={PublicProjectFinanceApp} />
                 <Route path="/deal" component={PublicDealApp} />
-                <Route path="/business" component={PublicApp} />
-                <Route path="/financial" component={PublicApp} />
+                <Route path="/business" component={PublicBusinessApp} />
+                <Route path="/financial" component={PublicFinancialApp} />
 
                 <Route path="/customerservice" component={PublicApp} />
                 <Route path="/customeraccess" component={PublicApp} />
