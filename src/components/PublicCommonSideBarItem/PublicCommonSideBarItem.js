@@ -12,6 +12,8 @@ const PublicCommonSideBarItem = React.createClass({
         router: React.PropTypes.object.isRequired
     },
 
+    isActive: false,
+
     /**
      * 左侧菜单点击事件处理
      */
@@ -43,8 +45,14 @@ const PublicCommonSideBarItem = React.createClass({
     /**
      * 二级菜单 渲染模式
      */
-    renderSubMenu () {
+    renderSubMenu (currHash) {
+        const _self = this;
+
         let submenu = this.props.submenu && this.props.submenu.map((item, index) => {
+            if (item.hash === currHash) {
+                _self.isActive = true;
+            }
+
             return (
                 <PublicCommonSideBarItemSub onSubActived={this.onSubMenuActived} key={'p-commonsidebaritem-' + index} hash={item.hash} text={item.text} />
             );
@@ -65,7 +73,7 @@ const PublicCommonSideBarItem = React.createClass({
 
     /**
      * 下拉图标 渲染模式
-     * 
+     *
      * @returns
      */
     renderArrowIcon () {
@@ -82,24 +90,24 @@ const PublicCommonSideBarItem = React.createClass({
 
     /**
      * this.props 解析
-     * 
+     *
      * icon - Material Icon对应的名称
      * text - 菜单项对应的文案
      * hash - 菜单链接
      * defaultClassName - 默认样式
      * onMutexActive  菜单项被选择后，互斥地 清除其他菜单项的选择状态
-     * 
+     *
      * @returns
      */
     render () {
         let index = window.location.hash.indexOf('?');
         let currHash = window.location.hash.substring(1, index);
 
-        let subMenu = this.renderSubMenu();
+        let subMenu = this.renderSubMenu(currHash);
         let arrowIcon = this.renderArrowIcon();
 
         return (
-            <li className={ClassNames('p-commonsidebaritem', {'active': this.props.hash === currHash}, {'has-sub': this.props.submenu && this.props.submenu.length > 0 })} ref="menuitem" onClick={this.clickSideBarMenu}>
+            <li className={ClassNames('p-commonsidebaritem', {'active': this.props.hash === currHash || this.isActive}, {'has-sub': this.props.submenu && this.props.submenu.length > 0 })} ref="menuitem" onClick={this.clickSideBarMenu}>
                 <a href="javascript:void(0);">
                     {arrowIcon}
                     <i className="material-icons">{this.props.icon}</i>

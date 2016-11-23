@@ -14,7 +14,7 @@ const PublicCommonSideBarItemSub = React.createClass({
 
     /**
      * 子菜单 点击事件处理
-     * 
+     *
      * @param {any} event
      */
     clickSubMenu (event) {
@@ -22,7 +22,7 @@ const PublicCommonSideBarItemSub = React.createClass({
 
         this.props.onSubActived && this.props.onSubActived();
 
-        this.refs.submenuitem && this.refs.submenuitem.classList.add('active');        
+        this.refs.submenuitem && this.refs.submenuitem.classList.add('active');
 
         this.context.router.push({
             pathname: this.props.hash,
@@ -33,11 +33,11 @@ const PublicCommonSideBarItemSub = React.createClass({
 
     /**
      * this.props 解析
-     * 
+     *
      * text - 菜单项对应的文案
      * hash - 菜单链接
      * defaultClassName - 默认样式
-     * 
+     *
      * @returns
      */
     render () {

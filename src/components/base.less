@@ -14,3 +14,40 @@
 * {
     font-family: 'Microsoft Yahei';
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #eee;
+    height: 8px;
+}
+
+::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+}
+
+::-webkit-scrollbar-track {
+
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active{
+    background-color: rgba(0,0,0,0.5);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    border-width: 6px 1px 1px;
+    padding: 0 0 0 100px;
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset -1px 0 0 rgba(0, 0, 0, 0.07);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+

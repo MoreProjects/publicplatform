@@ -1,14 +1,18 @@
 import 'babel-core/polyfill';
+import './components/base.less';
 import React from 'react';
 import { render } from 'react-dom';
 import FastClick from 'fastclick';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import PublicApp from './components/PublicApp';
+import PublicProjectFinanceApp from './components/PublicProjectFinanceApp';
+import PublicDealApp from './components/PublicDealApp';
+
 import ajax from './api/ApiService';
 
 /**
  * 全局
- * 
+ *
  * 用户基本信息
  */
 window.globalUserInfo = null;
@@ -85,8 +89,8 @@ function bootstrap() {
                 <Route path="/developconfig" component={PublicApp} />
                 <Route path="/access" component={PublicApp} />
 
-                <Route path="/finance" component={PublicApp} />
-                <Route path="/deal" component={PublicApp} />
+                <Route path="/finance" component={PublicProjectFinanceApp} />
+                <Route path="/deal" component={PublicDealApp} />
                 <Route path="/business" component={PublicApp} />
                 <Route path="/financial" component={PublicApp} />
 
